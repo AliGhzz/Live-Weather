@@ -20,4 +20,14 @@ class TimeFormatter {
     ));
     return sunrise;
   }
+
+  static getDayAndMonth(DateTime dateTime){
+      DateFormat formatter = DateFormat('MMMM dd');
+      return formatter.format(dateTime);
+
+  }
+  static getTime(DateTime dateTime) {
+    DateFormat formatter = DateFormat('HH:mm'); 
+    return formatter.format(dateTime);
+}
 }

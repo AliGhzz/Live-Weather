@@ -2,9 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:live_weather/core/network/data_state.dart';
 import 'package:live_weather/features/weather/data/data_source/remote/api_provider.dart';
 import 'package:live_weather/features/weather/data/model/curreny_weather_model.dart';
-import 'package:live_weather/features/weather/data/model/suggest_city_model.dart';
 import 'package:live_weather/features/weather/domain/entity/current_weather_entity.dart';
-import 'package:live_weather/features/weather/domain/entity/suggest_city_entity.dart';
 import 'package:live_weather/features/weather/domain/repository/weather_repository.dart';
 
 class WeatherRepositoryImpl extends WeatherRepository {
@@ -25,17 +23,5 @@ class WeatherRepositoryImpl extends WeatherRepository {
     } catch (e) {
       return const DataFailed("Please Check your connection");
     }
-  }
-
-
-  @override
-  Future<List<Data>> fetchSuggestData(cityName) async {
-
-    Response response = await apiProvider.sendRequestCitySuggestion(cityName);
-
-    SuggestCityEntity suggestCityEntity = SuggestCityModel.fromJson(response.data);
-
-    return suggestCityEntity.data!;
-
   }
 }

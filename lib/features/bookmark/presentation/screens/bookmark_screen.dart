@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:live_weather/features/bookmark/presentation/bloc/bookmark_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../weather/presentation/bloc/bloc/home_bloc.dart';
+import '../../../weather/presentation/bloc/current_waether_bloc/home_bloc.dart';
 import '../../domain/entity/city_entity.dart';
 import '../bloc/get_all_city_status.dart';
 

@@ -112,14 +112,15 @@ class BookMarkIcon extends StatelessWidget {
 
           /// show Error for CityStatus
           if(state.getCityStatus is GetCityError){
-            return IconButton(
-                onPressed: (){
-                  // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  //   content: Text("please load a city!"),
-                  //   behavior: SnackBarBehavior.floating, // Add this line
-                  // ));
-                },
-                icon: const Icon(Icons.error,color: Colors.white,size: 35),);
+            return SizedBox.shrink();
+            // return IconButton(
+            //     onPressed: (){
+            //       // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            //       //   content: Text("please load a city!"),
+            //       //   behavior: SnackBarBehavior.floating, // Add this line
+            //       // ));
+            //     },
+            //     icon: const Icon(Icons.error,color: Colors.white,size: 35),);
           }
 
           /// default value

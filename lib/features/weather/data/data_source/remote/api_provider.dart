@@ -4,17 +4,15 @@ import 'package:logger/logger.dart';
 
 class ApiProvider {
   final Dio dio = Dio();
-
+  var logger = Logger();
   final baseUrl = Constants.baseUrl;
   final apiKey = Constants.apiKey;
 
   Future<dynamic> getCurrentWeather({required String city}) async {
-    var logger = Logger();
+    dio.options.connectTimeout = Duration(milliseconds: 3000);
     try {
       var response = await dio.get("$baseUrl/data/2.5/weather",
           queryParameters: {'q': city, 'appid': apiKey, 'units': 'metric'});
-
-  
       return response;
     } on DioException catch (e) {
       logger.e(e.message);
@@ -22,14 +20,11 @@ class ApiProvider {
   }
 
   Future<dynamic> getForcast({required String city}) async {
-    var logger = Logger();
+    dio.options.connectTimeout = Duration(milliseconds: 3000);
     try {
-      var response = await Dio().get('api.openweathermap.org/data/2.5/forecast/daily',
+      var response = await dio.get('$baseUrl/data/2.5/forecast',
           queryParameters: {'q': city, 'appid': apiKey, 'units': 'metric'});
-      
-      logger.i("-------------------");
-      logger.d(response.data);
-      logger.t("-------------------");
+    
       return response;
     } on DioException catch (e) {
       logger.e(e.message);
