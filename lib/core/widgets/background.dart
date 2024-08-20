@@ -10,7 +10,7 @@ class DayNightImage {
     bool isDayTime = now.hour >= sunrise.hour && now.hour < sunset.hour;
 
     String imagePath =
-        isDayTime ? 'assets/images/day.jpg':'assets/images/night.jpg';
+        !isDayTime ? 'assets/images/day.jpg':'assets/images/night.jpg';
 
     return AssetImage(imagePath);  
   }
