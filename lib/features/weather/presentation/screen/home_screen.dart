@@ -324,8 +324,8 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
                                   Padding(
                                     padding: const EdgeInsets.only(top: 8),
                                     child: Text(
-                                        "${currentWeatherEntity.wind!.speed}m/s",
-                                        style: const TextStyle(
+                                        "${currentWeatherEntity.wind!.speed??0}m/s",
+                                        style: const TextStyle( 
                                             color: Colors.white, fontSize: 12)),
                                   ),
                                 ],
